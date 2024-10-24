@@ -1,0 +1,40 @@
+body {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bigContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addBook {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 100px;
+
+}
+
+.bookShelf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.book {
+    display: flex;
+    border: 3px solid black;
+    flex-direction: wrap;
+    justify-content: left;
+    align-items: left;
+    margin-top: 50px;
+    background-color: white;
+    height: 250px;
+    width: 250px;
+
+}
