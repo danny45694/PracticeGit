@@ -4,6 +4,7 @@ btn.onclick = () => addBookToLibrary();
 
 
 function Book(title, author, pages, read) {
+    
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -20,25 +21,9 @@ const myLibrary = [];
 
 function addBookToLibrary() {
     let user = prompt("Give me a title for the book");
-    myLibrary.push(user);
+    const newBook = document.createElement("div");
+    newBook.textContent = user;
+
+    myLibrary.push(newBook);
     return myLibrary;
 };
-
-for(let i = 0; i < images.length; i++) {
-
-}
-
-
-for(i = 0; i < myLibrary.length; i++) {
-   let display = myLibrary[i];
-   
-}
-console.log(mylibrary);
-
-
-/* const content = document.createElement("div");
-content.classList.add("content");
-content.textContent = "this is the glorious text-content!");
-
-container.appendChild(content);
-*/
