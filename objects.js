@@ -1,5 +1,9 @@
 const btn = document.querySelector("#addBook");
-
+let title = document.getElementById('title');
+let author = document.getElementById('author');
+let pages = document.getElementById('pages');
+let read = document.getElementById('read');
+let myLibrary = [];
 btn.onclick = () => addBookToLibrary();
 
 
@@ -12,30 +16,26 @@ function Book(title, author, pages, read) {
     this.info = function info(){
         return(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`)
     };
-    console.log(this.title);
-}
+    //console.log(this.info());
+    myLibrary.push(this.info());
+   /* Testing if push logic working correctly
+   */
+};
 
-//const book1 = new Book("The Hobbit", "J.R.R Tolkien", 295, "not read");
-//console.log(book1.info());
-
-let myLibrary = [];
+myLibrary.forEach(element => {
+    console.log(element);
+});
 
 function addBookToLibrary() {
-    let title = document.getElementById('title');
-    let author = document.getElementById('author');
-    let pages = document.getElementById('pages');
-    let read = document.getElementById('read');
+   
     let sTitle = title.value;
     let sAuthor = author.value;
     let sPages = pages.value;
-    let sRead = read.value
-    const newBook = Book('sTitle', 'sAuthor', 'sPages', 'sRead.value');
-    console.log(newBook());
-   // myLibrary.push(newBook);
-    //console.log(myLibrary[0].title[0]);
+    let sRead = read.value;
+    Book(sTitle, sAuthor, sPages, sRead);
+    
     //return myLibrary;
 };
-
 
 
 /* window.addEventListener("DOMContentLoaded", (event) => {
