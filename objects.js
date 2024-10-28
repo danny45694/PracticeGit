@@ -4,38 +4,27 @@ let author = document.getElementById('author');
 let pages = document.getElementById('pages');
 let read = document.getElementById('read');
 let myLibrary = [];
-btn.onclick = () => addBookToLibrary();
 
-
-function Book(title, author, pages, read) {
-    
+const Book = class {
+    constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function info(){
-        return(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`)
     };
-    //console.log(this.info());
-    myLibrary.push(this.info());
-   /* Testing if push logic working correctly
-   */
 };
+  
 
-myLibrary.forEach(element => {
-    console.log(element);
+btn.addEventListener("submit", e => {
+  e.preventDefault();
+  myLibrary.push(new Book(e.target.title.value, e.target.author.value, e.target.pages.value, e.target.read.value));
+  e.target.reset();
+  let str = '';
+  myLibrary.forEach(book => {
+    str += `<li>${book.title}, ${book.author}, ${book.pages}, ${book.read}</li>`;
+  });
+  books.innerHTML = str;
 });
-
-function addBookToLibrary() {
-   
-    let sTitle = title.value;
-    let sAuthor = author.value;
-    let sPages = pages.value;
-    let sRead = read.value;
-    Book(sTitle, sAuthor, sPages, sRead);
-    
-    //return myLibrary;
-};
 
 
 /* window.addEventListener("DOMContentLoaded", (event) => {
@@ -68,4 +57,4 @@ function addBookToLibrary() {
       });
     });
   });
-  */
+*/
