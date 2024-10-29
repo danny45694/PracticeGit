@@ -48,7 +48,7 @@ body {
     justify-content: space-around;
 }
 
-.book {
+.content {
     display: flex;
     border: 3px solid black;
     flex-direction: wrap;

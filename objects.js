@@ -4,8 +4,9 @@ let author = document.getElementById('author');
 let pages = document.getElementById('pages');
 let read = document.getElementById('read');
 let myLibrary = [];
+let bookShelf = document.querySelector('bookShelf');
 
-const Book = class {
+  class Book {
     constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -13,11 +14,29 @@ const Book = class {
     this.read = read;
     };
 };
-  
 
-btn.addEventListener("submit", e => {
+btn.addEventListener("click", () => {
+  myLibrary.push(new Book(title.value, author.value, pages.value, read.value));
+  let str = '';
+  myLibrary.forEach(book => {
+    str += 
+    `<li>${book.title}, ${book.author}, ${book.pages}, ${book.read}</li>
+    <button class="editBtn">Edit</button>
+    <button class="delBtn">Delete</button>
+    `;
+  });
+  book.innerHTML = str;
+      
+      toDoList.append(toDoListItem);
+      // reset input
+      toDoInput.value = '';
+});
+
+
+
+/* btn.addEventListener("click", e => {
   e.preventDefault();
-  myLibrary.push(new Book(e.target.title.value, e.target.author.value, e.target.pages.value, e.target.read.value));
+  myLibrary.push(new Book(e.target.title, author, pages, read));
   e.target.reset();
   let str = '';
   myLibrary.forEach(book => {
