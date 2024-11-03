@@ -24,13 +24,14 @@ btn.addEventListener("click", () => {
     <button class="editBtn">Edit</button>
     <button class="delBtn">Delete</button>
     `;
+    book.innerHTML = str;
+    console.log(myLibrary);
   });
-  book.innerHTML = str;
-      
-      toDoList.append(toDoListItem);
-      // reset input
-      toDoInput.value = '';
 });
+      //toDoList.append(toDoListItem);
+      // reset input
+     // toDoInput.value = '';
+
 
 
 
