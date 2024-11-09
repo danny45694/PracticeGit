@@ -18,22 +18,16 @@ let bookShelf = document.querySelector('bookShelf');
 
 btn.addEventListener("click", () => {
   myLibrary.push(new Book(title.value, author.value, pages.value, read.value));
-  let str = '';
   myLibrary.forEach(book => {
-    str += 
-    `<li>${book.title}, ${book.author}, ${book.pages}, ${book.read}</li>
-    <div class = "modifyBtn>
-    <button class="editBtn">Edit</button>
-    <button class="delBtn">Delete</button>
-    </div>
-    `;
-    document.getElementById("bookShelf").innerHTML = str;
-    console.log(myLibrary);
+    let newBook = document.createElement("span");
+    newBook.innerContent = `${book.title}, ${book.author}, ${book.pages}, ${book.read}`;
+    bookShelf.append(newBook);
   });
 });
 
 
-
+// <button class="editBtn">Edit</button>
+// <button class="delBtn">Delete</button>
 
 
       //toDoList.append(toDoListItem);
