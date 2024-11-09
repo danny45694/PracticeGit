@@ -4,8 +4,6 @@ let author = document.getElementById('author');
 let pages = document.getElementById('pages');
 let read = document.getElementById('read');
 let myLibrary = [];
-let bookShelf = document.querySelector('bookShelf');
-
 
   class Book {
     constructor(title, author, pages, read) {
@@ -18,14 +16,20 @@ let bookShelf = document.querySelector('bookShelf');
 
 btn.addEventListener("click", () => {
   myLibrary.push(new Book(title.value, author.value, pages.value, read.value));
-  myLibrary.forEach(book => {
-    let newBook = document.createElement("span");
-    newBook.innerContent = `${book.title}, ${book.author}, ${book.pages}, ${book.read}`;
-    bookShelf.append(newBook);
-  });
+  displayBooks();
 });
 
+function displayBooks() {
+  const bookShelf = document.querySelector(".bookShelf");
+  bookShelf.innerHTML = '';
 
+myLibrary.forEach(book => {
+  const newBook = document.createElement("span");
+  newBook.textContent = `Title: ${book.title}, Author: ${book.author}, Pages: ${book.pages}, Status: ${book.read}`;
+  newBook.classList.add('newBook');
+  bookShelf.appendChild(newBook);
+  });
+}
 // <button class="editBtn">Edit</button>
 // <button class="delBtn">Delete</button>
 
