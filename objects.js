@@ -4,6 +4,12 @@ let author = document.getElementById('author');
 let pages = document.getElementById('pages');
 let read = document.getElementById('read');
 let myLibrary = [];
+const submit = document.getElementById('button');
+
+window.addEventListener('load', function() {
+  const form = document.querySelector(".form")
+  form.style.display = "none";
+});
 
   class Book {
     constructor(title, author, pages, read) {
@@ -15,9 +21,24 @@ let myLibrary = [];
 };
 
 btn.addEventListener("click", () => {
+  const form = document.querySelector(".form")
+  form.style.display = "flex"
+});
+
+submit.addEventListener("click", () => {
   myLibrary.push(new Book(title.value, author.value, pages.value, read.value));
   displayBooks();
+  cleanFields();
+  const form = document.querySelector(".form")
+  form.style.display = "none"
 });
+
+function cleanFields() {
+  title.value = "";
+  author.value = "";
+  pages.value = "";
+  read.value = "";
+}
 
 function displayBooks() {
   const bookShelf = document.querySelector(".bookShelf");
