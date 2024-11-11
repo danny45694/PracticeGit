@@ -51,6 +51,14 @@ myLibrary.forEach(book => {
   bookShelf.appendChild(newBook);
   });
 }
+
+function bookPosition(position) {
+  return position.title === `${title}`
+}
+
+
+
+
 // <button class="editBtn">Edit</button>
 // <button class="delBtn">Delete</button>
 
