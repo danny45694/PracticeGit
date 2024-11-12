@@ -5,6 +5,7 @@ let pages = document.getElementById('pages');
 let read = document.getElementById('read');
 let myLibrary = [];
 const submit = document.getElementById('button');
+let bookCount = 0;
 
 window.addEventListener('load', function() {
   const form = document.querySelector(".form")
@@ -45,9 +46,13 @@ function displayBooks() {
   bookShelf.innerHTML = '';
 
 myLibrary.forEach(book => {
-  const newBook = document.createElement("span");
-  newBook.textContent = `Title: ${book.title}, Author: ${book.author}, Pages: ${book.pages}, Status: ${book.read}`;
+  const newBook = document.createElement("div");
+  newBook.textContent = `Title: ${book.title}, Author: ${book.author}, Pages: ${book.pages}, Status: ${book.read}`
   newBook.classList.add('newBook');
+  const delBtn = document.createElement("button");
+  delBtn.textContent = "Delete";
+  delBtn.classList.add('delBtn');
+  newBook.append(delBtn);
   bookShelf.appendChild(newBook);
   });
 }
@@ -56,7 +61,28 @@ function bookPosition(position) {
   return position.title === `${title}`
 }
 
+function counter(bookCount) {
+  if(bookCount > 0) {
+  console.log(myLibrary[e].title)
+  }
+}
 
+const delBtn = document.querySelectorAll(".delBtn");
+
+/* myLibrary.forEach(button => {
+  delBtn.addEventListener("click", (e) => {
+    console.log(console.log(myLibrary[e].title))
+  });
+});
+
+
+/*myLibrary.forEach(button => {
+  delBtn.addEventListener("click", function() {
+    console.log(myLibrary[].title);
+  });
+})
+
+  
 
 
 // <button class="editBtn">Edit</button>
@@ -69,17 +95,6 @@ function bookPosition(position) {
 
 
 
-
-/* btn.addEventListener("click", e => {
-  e.preventDefault();
-  myLibrary.push(new Book(e.target.title, author, pages, read));
-  e.target.reset();
-  let str = '';
-  myLibrary.forEach(book => {
-    str += `<li>${book.title}, ${book.author}, ${book.pages}, ${book.read}</li>`;
-  });
-  books.innerHTML = str;
-});
 
 
 /* window.addEventListener("DOMContentLoaded", (event) => {
