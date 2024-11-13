@@ -52,28 +52,20 @@ myLibrary.forEach(book => {
   const delBtn = document.createElement("button");
   delBtn.textContent = "Delete";
   delBtn.classList.add('delBtn');
+  delBtn.addEventListener("click", function() {
+    newBook.innerHTML = book.title;
+    index = myLibrary.findIndex(book => book.title === newBook.innerHTML);
+    console.log(index);
+    myLibrary.splice(index,1)
+    bookShelf.removeChild(newBook);
+    
+  });
   newBook.append(delBtn);
   bookShelf.appendChild(newBook);
   });
 }
 
-function bookPosition(position) {
-  return position.title === `${title}`
-}
 
-function counter(bookCount) {
-  if(bookCount > 0) {
-  console.log(myLibrary[e].title)
-  }
-}
-
-const delBtn = document.querySelectorAll(".delBtn");
-
-/* myLibrary.forEach(button => {
-  delBtn.addEventListener("click", (e) => {
-    console.log(console.log(myLibrary[e].title))
-  });
-});
 
 
 /*myLibrary.forEach(button => {
